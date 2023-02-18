@@ -1,0 +1,59 @@
+<div class="mt-4">
+  <form [formGroup]="form" class="signup__form">
+    <div
+      class="form-group"
+      [ngClass]="
+        form.controls['email'].invalid && form.controls['email'].touched
+          ? 'error'
+          : ''
+      "
+    >
+      <label for="name">Email: </label>
+      <input
+        class="form-control"
+        type="email"
+        name="email"
+        formControlName="email"
+      />
+      <label
+        *ngIf="
+          form.controls['email'].invalid && form.controls['email'].touched
+            ? 'error'
+            : ''
+        "
+        class="error-message"
+        >Email is required field</label
+      >
+    </div>
+
+    <div
+      class="form-group"
+      [ngClass]="
+        form.controls['password'].invalid && form.controls['password'].touched
+          ? 'error'
+          : ''
+      "
+    >
+      <label for="name">Password: </label>
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        formControlName="password"
+      />
+      <label
+        *ngIf="
+          form.controls['password'].invalid && form.controls['password'].touched
+            ? 'error'
+            : ''
+        "
+        class="error-message"
+        >Password is required field</label
+      >
+    </div>
+    <div class="d-flex space-around">
+      <button class="secondary-button" (click)="goToHomepage()">Go Back</button>
+      <button class="primary-button" (click)="submitForm()">Sign In</button>
+    </div>
+  </form>
+</div>

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
   storedTheme: string | null = localStorage.getItem('theme-color');
+
   readonly form: FormGroup = this.fb.group({
     email: [null, [Validators.required, Validators.email]],
     password: [null, [Validators.required]],
@@ -36,7 +37,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   submitForm() {
-    console.log('form', this.form);
     this.form.markAllAsTouched();
 
     if (this.form.invalid) {

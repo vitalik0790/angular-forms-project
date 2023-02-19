@@ -1,4 +1,19 @@
-<div class="mt-4">
+<div class="form-layout {{ storedTheme }}">
+  <div class="theme-switcher-wrap">
+    <label
+      [ngClass]="
+        storedTheme === 'theme-dark'
+          ? 'theme-switcher active'
+          : 'theme-switcher'
+      "
+      (click)="setTheme()"
+    >
+      <div class="switch-path">
+        <div class="switch-handle"></div>
+      </div>
+    </label>
+  </div>
+
   <form [formGroup]="form" class="signup__form">
     <div
       class="form-group"
@@ -22,8 +37,9 @@
             : ''
         "
         class="error-message"
-        >Email is required field</label
       >
+        Email is required field
+      </label>
     </div>
 
     <div
@@ -48,8 +64,9 @@
             : ''
         "
         class="error-message"
-        >Password is required field</label
       >
+        Password is required field
+      </label>
     </div>
     <div class="d-flex space-around">
       <button class="secondary-button" (click)="goToHomepage()">Go Back</button>

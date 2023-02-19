@@ -1,12 +1,24 @@
+$bg-theme-light: #fafafa;
+$color-theme-light: black;
+
+$bg-theme-dark: black;
+$color-theme-dark: #fff;
+
+.form-layout {
+  background: $bg-theme-light;
+  padding: 2.5rem;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 35px;
 
   .form-control {
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 5px;
     text-transform: uppercase;
-    color: black;
+    color: $color-theme-light;
   }
 
   &.error label,
@@ -28,18 +40,16 @@
     border-color: #111;
   }
 }
-[type='text'] {
+[type="text"] {
   color: #111;
 }
-[type='password'] {
+[type="password"] {
   color: #111;
 }
 
 .signup__form {
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 2.5rem;
-  background: #fafafa;
 }
 
 .action-buttons {
@@ -50,4 +60,68 @@
 .error-message {
   font-size: 12px;
   color: #e93e36;
+}
+
+.form-layout.theme-dark {
+  background-color: $bg-theme-dark;
+  color: $color-theme-dark;
+
+  .form-control {
+    color: $color-theme-dark;
+
+    &:focus {
+      border-color: #fff;
+    }
+  }
+
+  .form-group.error input {
+    color: #e93e36;
+  }
+
+  [type="text"] {
+    color: #fff;
+  }
+  [type="password"] {
+    color: #fff;
+  }
+}
+
+.theme-switcher-wrap {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 15px;
+
+  .theme-switcher {
+    display: inline-block;
+    cursor: pointer;
+
+    .switch-path {
+      width: 40px;
+      height: 20px;
+      border-radius: 10px;
+      background-color: #ccc;
+
+      .switch-handle {
+        background-color: #999;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    .theme-switcher {
+      display: none;
+    }
+
+    &.active {
+      .switch-path {
+        background-color: #555;
+      }
+
+      .switch-handle {
+        transform: translateX(20px);
+        background-color: #7bbb5e;
+      }
+    }
+  }
 }

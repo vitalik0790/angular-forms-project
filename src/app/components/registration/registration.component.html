@@ -38,7 +38,12 @@
         "
         class="error-message"
       >
-        Email is required field
+        <ng-container *ngIf="form.controls['email'].errors?.['required']">
+          Email is a required field
+        </ng-container>
+        <ng-container *ngIf="form.controls['email'].errors?.['email']">
+          Please enter a valid email address
+        </ng-container>
       </label>
     </div>
 
